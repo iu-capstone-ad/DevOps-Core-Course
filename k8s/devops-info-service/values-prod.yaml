@@ -1,0 +1,24 @@
+replicaCount: 5
+
+image:
+  tag: "latest"
+
+resources:
+  requests:
+    memory: "256Mi"
+    cpu: "200m"
+  limits:
+    memory: "512Mi"
+    cpu: "500m"
+
+service:
+  type: NodePort
+  nodePort: 30082
+
+livenessProbe:
+  initialDelaySeconds: 30
+  periodSeconds: 5
+
+readinessProbe:
+  initialDelaySeconds: 10
+  periodSeconds: 3
